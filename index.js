@@ -15,7 +15,7 @@ app.engine('html', cons.swig);
 app.set('view engine', 'html');
 app.set('views',__dirname + '/views');
 app.use("/",function(req,res) {
-    res.render('layout',{title:'salem'})
+    res.render('layout',{title:'Bonjour'})
 })
 
 var server = http.createServer(app);
@@ -52,7 +52,6 @@ io.on('connection', function (socket) {
 	socket.on('coord',function (position) {
         var myPosition = position.geometry.coordinates;
         var startNode = myPosition[0]+","+myPosition[1];
-        console.log(startNode)
         trajetNode.sort(function (a, b) {
             return a.point - b.point;
         });
