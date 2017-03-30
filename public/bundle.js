@@ -8991,39 +8991,6 @@ module.exports = angular;
 !window.angular.$$csp() && window.angular.element(document).find("head").prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>');
 
 },{}],5:[function(require,module,exports){
-var Configs = {
-	router: function ($stateProvider, $urlRouterProvider, USER_ROLES) {
-
-		this.home = {
-			name: 'home',
-			url: '/',
-			templateUrl: 'views/home.html',
-			controller: 'HomeCtrl'
-			//resolve: load('./controllers/scroll.js'),
-			/*
-   resolve: {
-   	loadPlugin: function ($ocLazyLoad) {
-   		return $ocLazyLoad.load([
-   			{
-                            files: ['assets/vendor/revslider/js/jquery.themepunch.tools.min.js']
-                        },
-   			{
-   				name: 'revslider',
-                         files: ["assets/vendor/revslider/js/jquery.themepunch.revolution.min.js"]
-   			}
-   		]);
-   	}
-   }
-   */
-		};
-		$urlRouterProvider.otherwise('/');
-		$stateProvider.state(this.home);
-	}
-};
-
-module.exports = Configs;
-
-},{}],6:[function(require,module,exports){
 function HomeCtrl($scope, watchID, Socket) {
     /* VARS */
 
@@ -9076,7 +9043,7 @@ function HomeCtrl($scope, watchID, Socket) {
 
 module.exports = HomeCtrl;
 
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var angular = require('angular-last');
 var ocLazyLoad = require('ocLazyLoad');
 var modules = [require('angular-ui-router'), 'oc.lazyLoad'];
@@ -9125,9 +9092,41 @@ app.service('Socket', ['$state', '$timeout', function ($state, $timeout) {
     }
   };
 }]);
-app.controller('HomeCtrl', ['$scope', 'watchID', 'Socket', require('./controllers/HomeCtrl.js')]);
+app.controller('HomeCtrl', ['$scope', 'watchID', 'Socket', require('./HomeCtrl.js')]);
 angular.element(document).ready(function () {
   angular.bootstrap(document, ['app']);
 });
 
-},{"./configs":5,"./controllers/HomeCtrl.js":6,"angular-last":3,"angular-ui-router":1,"ocLazyLoad":2}]},{},[7]);
+},{"./HomeCtrl.js":5,"./configs":7,"angular-last":3,"angular-ui-router":1,"ocLazyLoad":2}],7:[function(require,module,exports){
+var Configs = {
+	router: function ($stateProvider, $urlRouterProvider, USER_ROLES) {
+
+		this.home = {
+			name: 'home',
+			url: '/',
+			templateUrl: 'views/home.html',
+			controller: 'HomeCtrl'
+			/*
+   resolve: {
+   	loadPlugin: function ($ocLazyLoad) {
+   		return $ocLazyLoad.load([
+   			{
+                            files: ['']
+                        },
+   			{
+   				name: 'revslider',
+                         files: [""]
+   			}
+   		]);
+   	}
+   }
+   */
+		};
+		$urlRouterProvider.otherwise('/');
+		$stateProvider.state(this.home);
+	}
+};
+
+module.exports = Configs;
+
+},{}]},{},[6]);

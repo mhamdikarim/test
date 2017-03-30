@@ -6,17 +6,16 @@ var Configs = {
 			url: '/',
 			templateUrl: 'views/home.html',
 			controller: 'HomeCtrl'
-			//resolve: load('./controllers/scroll.js'),
 			/*
 			resolve: {
 				loadPlugin: function ($ocLazyLoad) {
 					return $ocLazyLoad.load([
 						{
-                            files: ['assets/vendor/revslider/js/jquery.themepunch.tools.min.js']
+                            files: ['']
                         },
 						{
 							name: 'revslider',
-	                        files: ["assets/vendor/revslider/js/jquery.themepunch.revolution.min.js"]
+	                        files: [""]
 						}
 					]);
 				}
